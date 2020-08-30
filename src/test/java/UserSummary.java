@@ -68,4 +68,20 @@ public class UserSummary {
 	 public void setLongitude(float longitude) {
 	  this.longitude = longitude;
 	 }
+	 
+	 @Override
+	 public boolean equals(Object other) {
+		UserSummary otherUserSummary = (UserSummary) other; 
+		
+		boolean theyHaveTheSameFirstName = this.first_name.equals(otherUserSummary.getFirst_name());
+		boolean theyHaveTheSameLastName = this.last_name.equals(otherUserSummary.getLast_name());
+		boolean theyHaveTheSameEmailAddress = this.email.equals(otherUserSummary.getEmail());
+		boolean theyHaveTheSameIpAddress = this.ip_address.equals(otherUserSummary.getIp_address());
+		boolean theyHaveTheSameLatitude = Float.compare(this.latitude, otherUserSummary.getLatitude()) == 0;
+		boolean theyHaveTheSameLongitude = Float.compare(this.longitude, otherUserSummary.getLongitude()) == 0;
+		
+		return theyHaveTheSameFirstName && theyHaveTheSameLastName 
+				&& theyHaveTheSameEmailAddress && theyHaveTheSameIpAddress 
+				&& theyHaveTheSameLatitude && theyHaveTheSameLongitude;
+	 }
 }
